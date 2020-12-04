@@ -26,10 +26,6 @@ let clothSize: ClothSize = 'small';
 
 type ClothSize = 'small' | 'medium' | 'large';
 
-function add (num1, num2) {
-  return num1 + num2;
-}
-
 function sayHello (): void {
   console.log('Hello');
 }
@@ -38,7 +34,6 @@ console.log(sayHello());
 
 let tmp: undefined;
 
-const anotherAdd: (n1: number, n2: number) => number = add;
 
 const doubleNumber: (num: number) => number = num => num * 2
 

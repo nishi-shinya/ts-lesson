@@ -16,15 +16,11 @@ let unionType = 10;
 let unionTypes = [10, 'hello'];
 const apple = 'apple';
 let clothSize = 'small';
-function add(num1, num2) {
-    return num1 + num2;
-}
 function sayHello() {
     console.log('Hello');
 }
 console.log(sayHello());
 let tmp;
-const anotherAdd = add;
 const doubleNumber = num => num * 2;
 function dobleAndHandle(num, cb) {
     const doubleNum = cb(num * 2);
