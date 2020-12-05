@@ -1,8 +1,17 @@
 "use strict";
 class Score {
     get totalScore() {
-        const foods = new Foods();
+        const foods = Foods.getInstance();
         return foods.activeElementsScore.reduce((total, current) => total + current, 0);
+    }
+    render() {
+        document.querySelector('.score__number').textContent = String(this.totalScore);
+    }
+    static getInstance() {
+        if (!Score.instance) {
+            Score.instance = new Score();
+        }
+        return Score.instance;
     }
 }
 class Food {
@@ -12,6 +21,8 @@ class Food {
     }
     clickEventHandler() {
         this.element.classList.toggle('food--active');
+        const score = Score.getInstance();
+        score.render();
     }
 }
 class Foods {
@@ -35,7 +46,7 @@ class Foods {
     }
     get activeElementsScore() {
         this._activeElementsScore = [];
-        this._activeElements.forEach(el => {
+        this.activeElements.forEach(el => {
             const foodScore = el.querySelector('.food__score');
             if (foodScore) {
                 this._activeElementsScore.push(Number(foodScore.textContent));
@@ -44,5 +55,11 @@ class Foods {
         return this._activeElementsScore;
     }
     ;
+    static getInstance() {
+        if (!Foods.instance) {
+            Foods.instance = new Foods();
+        }
+        return Foods.instance;
+    }
 }
-const foods = new Foods();
+const foods = Foods.getInstance();
