@@ -6,16 +6,19 @@ class Todo {
 class Html {
   private ul: HTMLUListElement ;
   constructor(private id: string) {
+    this.id = id;
+    this.ul = this.getList();
   }
 
-  getList (id: HTMLUListElement) {
+  getList () {
     const ul = <HTMLUListElement>document.getElementById(this.id);
     if (ul) {
-      this.ul = ul;
+      return ul;
     }
+    return;
   }
 
-  render (todo: Todo) {
+  listRender (todo: Todo) {
     if (this.ul) {
       this.ul.insertAdjacentHTML('beforeend', `<li>${todo.todo}</li>`);
     }
@@ -26,4 +29,6 @@ const todo = new Todo('うんち', 1);
 
 const html = new Html('js-todo-list');
 
-html.render(todo);
+console.log(html);
+
+html.listRender(todo);
