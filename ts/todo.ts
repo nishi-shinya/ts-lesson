@@ -3,7 +3,6 @@ class Todo {
   constructor (public todo: string, public status: number) {
   }
 }
-type status = [ 'todo', 'doing', 'done'];
 class TodoList {
   constructor (public todolist: Array<Todo>) {
   }
@@ -30,25 +29,22 @@ class Html {
     return ul;
   }
 
-  listRender (todolist: TodoList) {
-
-    todolist.forEach(element => {
-
+  listRender (todolist: Array<Todo>) {
+    const status = ['todo', 'doing', 'done'];
+    todolist.forEach(todo => {
+      if (status[todo.status] === undefined) {
+        return;
+      }
+      if (this.ul) {
+        this.ul.insertAdjacentHTML('beforeend', `<li>${todo.todo}${status[todo.status]}</li>`);
+      }
     });
-
-    if (this.ul) {
-      this.ul.insertAdjacentHTML('beforeend', `<li>${todo.todo}${todo.status}</li>`);
-    }
   }
 }
 
-const todo = new Todo('掃除', 1);
-const todo_1 = new Todo('洗濯', 2);
-const todo_2 = new Todo('手洗い', 3);
-const todo_3 = new Todo('うがい', 4);
 const todolist = new TodoList([]);
-todolist.todoList = todo;
-todolist.todoList = todo_1;
-todolist.todoList = todo_2;
-todolist.todoList = todo_3;
+todolist.todoList = new Todo('掃除', 0);
+todolist.todoList = new Todo('洗濯', 1);
+todolist.todoList = new Todo('手洗い', 2);
+todolist.todoList = new Todo('うがい', 3);
 todolist.getTodoList();
