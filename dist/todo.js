@@ -34,7 +34,7 @@ class Html {
                 return;
             }
             if (this.ul) {
-                this.ul.insertAdjacentHTML('beforeend', `<li>${todo.todo}${status[todo.status]}</li>`);
+                this.ul.insertAdjacentHTML('beforeend', `<li>Todo:${todo.todo} 状態:${status[todo.status]}</li>`);
             }
         });
     }
