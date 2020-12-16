@@ -1,10 +1,10 @@
 // インターセクション型
-type Enginner = {
+interface Enginner {
   name: string;
   role: string;
 }
 
-type Blogger = {
+interface Blogger {
   name: string;
   follower: number;
 }
@@ -16,3 +16,43 @@ const quiil: EnginnerBlogger = {
   follower: 1000
 }
 
+// タイプガード
+function toUpperCase (x: string | number) {
+  if (typeof x === 'string') {
+    return x.toUpperCase();
+  }
+  return x;
+}
+
+type NomadWorker = Enginner | Blogger;
+function describeProfile (nomadWorker: NomadWorker) {
+  console.log(nomadWorker.name);
+  // in演算子でプロパティが存在するか調べられる
+  if ('role' in nomadWorker) {
+    console.log(nomadWorker.role);
+  }
+}
+
+class Dog {
+  speak () {
+    console.log('bow-wow');
+  }
+}
+
+class Bird {
+  speak () {
+    console.log('tweet-tweet');
+  }
+  fly () {
+    console.log('flutter');
+  }
+}
+
+type Pet = Dog | Bird;
+function havePet (pet: Pet) {
+  pet.speak();
+  // instanceof演算子でクラスを絞り込める
+  if (pet instanceof Bird) {
+    pet.fly();
+  }
+}
