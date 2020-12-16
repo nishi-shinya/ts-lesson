@@ -34,12 +34,14 @@ function describeProfile (nomadWorker: NomadWorker) {
 }
 
 class Dog {
+  kind: 'dog' = 'dog'
   speak () {
     console.log('bow-wow');
   }
 }
 
 class Bird {
+  kind: 'bird' = 'bird'
   speak () {
     console.log('tweet-tweet');
   }
@@ -55,4 +57,12 @@ function havePet (pet: Pet) {
   if (pet instanceof Bird) {
     pet.fly();
   }
+
+  // タグ付きユニオン
+  switch (pet.kind) {
+    case 'bird':
+      pet.fly();
+  }
 }
+
+
