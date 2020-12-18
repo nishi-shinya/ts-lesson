@@ -65,4 +65,12 @@ function havePet (pet: Pet) {
   }
 }
 
+// 型アサーション
+const input = <HTMLInputElement>document.getElementById('input');
+input.value = 'initial input value';
+const asInput = document.getElementById('asInput') as HTMLInputElement;
+input.value = 'intial input value';
+
+
+
 
