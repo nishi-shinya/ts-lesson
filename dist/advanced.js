@@ -49,3 +49,14 @@ function havePet(pet) {
             pet.fly();
     }
 }
+// 型アサーション
+const input = document.getElementById('input');
+input.value = 'initial input value';
+const asInput = document.getElementById('asInput');
+input.value = 'intial input value';
+// none Null assertion operator
+const noneInput = document.getElementById('noneInput');
+const desiner = {
+    name: 'Quill',
+    role: 'web'
+};

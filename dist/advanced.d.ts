@@ -22,3 +22,11 @@ declare class Bird {
 }
 declare type Pet = Dog | Bird;
 declare function havePet(pet: Pet): void;
+declare const input: HTMLInputElement;
+declare const asInput: HTMLInputElement;
+declare const noneInput: HTMLElement;
+interface Desiner {
+    name: string;
+    [index: string]: string;
+}
+declare const desiner: Desiner;

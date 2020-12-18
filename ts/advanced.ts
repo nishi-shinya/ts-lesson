@@ -71,6 +71,19 @@ input.value = 'initial input value';
 const asInput = document.getElementById('asInput') as HTMLInputElement;
 input.value = 'intial input value';
 
+// none Null assertion operator
+const noneInput = document.getElementById('noneInput')!;
+
+// インデックスシグネチャ
+interface Desiner {
+  name: string;
+  [index: string]: string;
+}
+
+const desiner: Desiner = {
+  name: 'Quill',
+  role: 'web'
+}
 
 
 
