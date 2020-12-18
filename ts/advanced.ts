@@ -17,6 +17,8 @@ const quiil: EnginnerBlogger = {
 }
 
 // タイプガード
+// 関数のオーバーロード
+function toUpperCase (x: string): string
 function toUpperCase (x: string | number) {
   if (typeof x === 'string') {
     return x.toUpperCase();
@@ -79,11 +81,47 @@ interface Desiner {
   name: string;
   [index: string]: string;
 }
-
 const desiner: Desiner = {
   name: 'Quill',
   role: 'web'
 }
+
+
+// タイプガード
+// 関数のオーバーロード
+function toUpperCaseOver (x: string): string
+function toUpperCaseOver (x: string | number) {
+  if (typeof x === 'string') {
+    return x.toUpperCase();
+  }
+  return x;
+}
+
+
+// 関数のオーバーロード
+const upperHello = toUpperCaseOver('hello');
+
+// optionalChaining
+interface DownloadedData {
+  id: number;
+  user?: {
+    name?: {
+      first: string
+      last: string
+    }
+  }
+}
+const downloadedData: DownloadedData = {
+  id: 1
+}
+console.log(downloadedData.user?.name);
+
+
+// NullishCoallesceing
+const userData = downloadedData.user ?? 'no-user';
+
+// Lookup型
+type id = DownloadedData["id"]
 
 
 
