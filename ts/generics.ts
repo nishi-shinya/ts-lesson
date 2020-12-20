@@ -57,3 +57,23 @@ fetchData.then(data => {
   data.toUpperCase();
 });
 const vegetables: Array<string> = ['Tomado' , 'Broccori', 'Asparagus'];
+
+interface ResponseData <T = any> {
+  data: T;
+  status: number;
+}
+let tmp2: ResponseData = {
+  data: 'test',
+  status: 1
+};
+
+// mappedType
+type MappedTypes = {
+  [P in 'tomato' | 'pumpkin']: P
+}
+
+// conditionalType
+type ConditionalType = 'tomato' extends string ? number : boolean;
+
+type ConditionalInfer = { tomato: 'tomato'} extends { tomato: infer R } ? R : boolean;
+type DistributeConditionalTypes = ( 'tomato' | 'pumpkins' ) extends 'tomato' ? number : boolean;
