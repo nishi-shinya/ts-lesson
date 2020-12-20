@@ -1,10 +1,10 @@
 "use strict";
+var _a, _b;
 const quiil = {
     name: 'Quill',
     role: 'front-end',
     follower: 1000
 };
-// タイプガード
 function toUpperCase(x) {
     if (typeof x === 'string') {
         return x.toUpperCase();
@@ -60,3 +60,17 @@ const desiner = {
     name: 'Quill',
     role: 'web'
 };
+function toUpperCaseOver(x) {
+    if (typeof x === 'string') {
+        return x.toUpperCase();
+    }
+    return x;
+}
+// 関数のオーバーロード
+const upperHello = toUpperCaseOver('hello');
+const downloadedData = {
+    id: 1
+};
+console.log((_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name);
+// NullishCoallesceing
+const userData = (_b = downloadedData.user) !== null && _b !== void 0 ? _b : 'no-user';

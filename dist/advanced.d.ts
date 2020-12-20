@@ -8,7 +8,7 @@ interface Blogger {
 }
 declare type EnginnerBlogger = Enginner & Blogger;
 declare const quiil: EnginnerBlogger;
-declare function toUpperCase(x: string | number): string | number;
+declare function toUpperCase(x: string): string;
 declare type NomadWorker = Enginner | Blogger;
 declare function describeProfile(nomadWorker: NomadWorker): void;
 declare class Dog {
@@ -30,3 +30,22 @@ interface Desiner {
     [index: string]: string;
 }
 declare const desiner: Desiner;
+declare function toUpperCaseOver(x: string): string;
+declare const upperHello: string;
+interface DownloadedData {
+    id: number;
+    user?: {
+        name?: {
+            first: string;
+            last: string;
+        };
+    };
+}
+declare const downloadedData: DownloadedData;
+declare const userData: string | {
+    name?: {
+        first: string;
+        last: string;
+    } | undefined;
+};
+declare type id = DownloadedData["id"];
